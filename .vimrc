@@ -71,6 +71,7 @@ else
 	let g:airline#extensions#tabline#left_sep = ' '
 	let g:airline#extensions#tabline#left_alt_sep = '|'
 	let g:airline_theme='dark'
+	let g:airline_section_warning = ''
 
 	" ####### Configuração do plugin nerdtree #######
 
@@ -87,5 +88,33 @@ else
 	filetype plugin indent on
 
 endif
+
+" Mapeamentos
+map <C-a> ggVG							"Selecionar tudo
+imap <C-a> <ESC>ggVG<CR>a			"Selecionar tudo
+map <C-s> :w<CR>						"Salvar documento
+imap <C-s> <ESC>:w<CR>				"Salvar documento
+map <C-x> :wq<CR>						"Salvar documento e sair
+imap <C-x> <ESC>:wq<CR>				"Salvar documento e sair
+
+map <F5> :source $HOME\.vimrc<CR>			"Atualizar arquivo de configuração
+imap <F5> <ESC>:source $HOME\.vimrc<CR>	"Atualizar arquivo de configuração
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
