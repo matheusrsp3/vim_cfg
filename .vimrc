@@ -6,6 +6,9 @@ set relativenumber
 syntax on
 set backspace=indent,eol,start
 set termguicolors 
+set hlsearch
+set wildmenu
+highlight WildMenu ctermfg=White ctermbg=Blue guifg=White guibg=Blue
 
 " Ocultando as barras de rolagem e de ferramentas
 augroup HideScrollbar
@@ -99,17 +102,17 @@ else
 endif
 
 " Mapeamentos
-map <C-a> ggVG										" Selecionar tudo
-imap <C-a> <ESC>ggVG<CR>a						" Selecionar tudo
+map <C-t> ggVG										" Selecionar tudo
+imap <C-t> <ESC>ggVG<CR>a						" Selecionar tudo
 map <C-s> :w<CR>									" Salvar documento
 imap <C-s> <ESC>:w<CR>							" Salvar documento
 map <C-x> :wq<CR>									" Salvar documento e sair
 imap <C-x> <ESC>:wq<CR>							" Salvar documento e sair
-map <C-q> :q!<CR>									" Fechar documento sem salvar
-imap <C-q> <ESC>:q!<CR>							" Fechar documento sem salvar
-
-map <F5> :source $HOME\.vimrc<CR>			" Atualizar arquivo de configuração
-imap <F5> <ESC>:source $HOME\.vimrc<CR>	" Atualizar arquivo de configuração
+map <C-q> :q<CR>									" Fechar documento 
+imap <C-q> <ESC>:q<CR>							" Fechar documento
+nmap <C-l> :noh<CR>								" Limpar marcação de busca
+map <F5> :source $HOME/.vimrc<CR>			" Atualizar arquivo de configuração
+imap <F5> <ESC>:source $HOME/.vimrc<CR>	" Atualizar arquivo de configuração
  
 
 
