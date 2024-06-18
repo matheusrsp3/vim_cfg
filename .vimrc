@@ -1,4 +1,4 @@
-" Configurações comuns para todos os modos de execução
+" ############### Configurações para todos os modos de execução ############### 
 set tabstop=3
 set shiftwidth=3
 set number
@@ -7,6 +7,14 @@ syntax on
 set backspace=indent,eol,start
 set termguicolors 
 
+" Ocultando as barras de rolagem e de ferramentas
+augroup HideScrollbar
+    autocmd!
+    autocmd VimEnter * set guioptions-=rL
+	 autocmd VimEnter * set guioptions-=T
+augroup END
+
+" #############################################################################
 
 " Verificar se o Vim está sendo executado no modo terminal
 if !has('gui_running')
@@ -31,10 +39,11 @@ if !has('gui_running')
 	let g:airline#extensions#tabline#left_sep = ' '
 	let g:airline#extensions#tabline#left_alt_sep = '|'
 	let g:airline_theme='dark'
+	let g:airline_section_warning = ''
 
 	" ####### Configuração do plugin nerdtree #######
 
-	autocmd vimenter * NERDTree
+	"autocmd vimenter * NERDTree
 	map <C-n> :NERDTreeToggle<CR>
 	let g:NERDTreeDirArrowExpandable = '+'
 	let g:NERDTreeDirArrowCollapsible = '»'
@@ -75,7 +84,7 @@ else
 
 	" ####### Configuração do plugin nerdtree #######
 
-	autocmd vimenter * NERDTree
+	"autocmd vimenter * NERDTree
 	map <C-n> :NERDTreeToggle<CR>
 	let g:NERDTreeDirArrowExpandable = '+'
 	let g:NERDTreeDirArrowCollapsible = '»'
@@ -90,30 +99,31 @@ else
 endif
 
 " Mapeamentos
-map <C-a> ggVG							"Selecionar tudo
-imap <C-a> <ESC>ggVG<CR>a			"Selecionar tudo
-map <C-s> :w<CR>						"Salvar documento
-imap <C-s> <ESC>:w<CR>				"Salvar documento
-map <C-x> :wq<CR>						"Salvar documento e sair
-imap <C-x> <ESC>:wq<CR>				"Salvar documento e sair
+map <C-a> ggVG										" Selecionar tudo
+imap <C-a> <ESC>ggVG<CR>a						" Selecionar tudo
+map <C-s> :w<CR>									" Salvar documento
+imap <C-s> <ESC>:w<CR>							" Salvar documento
+map <C-x> :wq<CR>									" Salvar documento e sair
+imap <C-x> <ESC>:wq<CR>							" Salvar documento e sair
+map <C-q> :q!<CR>									" Fechar documento sem salvar
+imap <C-q> <ESC>:q!<CR>							" Fechar documento sem salvar
 
-map <F5> :source $HOME\.vimrc<CR>			"Atualizar arquivo de configuração
-imap <F5> <ESC>:source $HOME\.vimrc<CR>	"Atualizar arquivo de configuração
-
-
-
-
-
+map <F5> :source $HOME\.vimrc<CR>			" Atualizar arquivo de configuração
+imap <F5> <ESC>:source $HOME\.vimrc<CR>	" Atualizar arquivo de configuração
+ 
 
 
+" ########################### Templates ########################### 
 
+" Template HTML
+function GerarHTML()
+	read ~/.vim/myfiles/templateHTML.html
+endfunction
 
+" Comandos para os templates
+command GerarHTML call GerarHTML()
 
-
-
-
-
-
+" #################################################################
 
 
 
